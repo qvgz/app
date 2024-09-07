@@ -1,0 +1,49 @@
+[smtp]
+# smtp 地址端口
+Host   = ""
+Port   =
+# 发送邮件邮箱账号密码
+User   = ""
+UserPW = ""
+
+[CPUNumDisk]
+# 日志绝对路径（缺省执行文件同目录下 monitor.log）
+LogPath = ""
+# 告警通知邮箱
+NotifyMailList = []
+# 同类型事件告警邮件间隔分钟
+NotifyIntervalTime= 60
+# 执行周期预设配置参考 https://pkg.go.dev/github.com/robfig/cron/v3#hdr-Predefined_schedules
+# RepeatTime 至少 3 分钟
+RepeatTime = "@every 3m"
+# cpu 最大使用率
+MaxiMumCPU = 90
+# 内存 最大使用率
+MaxiMumNUM = 90
+# 磁盘 最大使用率
+MaxiMumDisk = 90
+
+[RestartStopContainer]
+# 是否启用
+ONOFF = true
+# 日志绝对路径（缺省执行文件同目录下 monitor.log）
+LogPath = ""
+# 告警通知邮箱
+NotifyMailList = []
+# 执行周期预设配置参考 https://pkg.go.dev/github.com/robfig/cron/v3#hdr-Predefined_schedules
+RepeatTime = "@every 1m"
+
+[StartProcess]
+# 是否启用
+ONOFF = true
+# 日志绝对路径（缺省执行文件同目录下 monitor.log）
+LogPath = ""
+# 告警通知邮箱
+NotifyMailList = []
+# 执行周期预设配置参考 https://pkg.go.dev/github.com/robfig/cron/v3#hdr-Predefined_schedules
+RepeatTime = "@every 10s"
+# 检查启动进程 [['执行文件（绝对路径）','2>&1 重定向文件目录（缺省执行文件同目录下 monitorNohup.out）']]
+ProcessList=[[]]
+# 检查进程执行脚本 [['执行文件（绝对路径）','执行脚本（绝对路径）']]
+ProcessScript=[[]]
+

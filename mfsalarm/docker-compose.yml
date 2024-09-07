@@ -1,0 +1,8 @@
+version: '3'
+services:
+  webtool:
+    image: qvgz/mfsalarm:latest
+    container_name: mfsalarm
+    volumes:
+      - conf.json:/app/conf.json
+    restart: always

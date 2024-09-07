@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>空调定时计算</title>
+</head>
+
+<body>
+    <a href="/">日常工具</a>
+    <h2>空调定时计算</h2>
+    <form action="ktds" method="POST">
+        <label for="kttime">空调关闭时间:</label>
+        <input type="datetime-local" name="kttime" value="{{ .DateTime }}">
+        <button>查询</button>
+    </form>
+
+    {{ .Message }}
+</body>
+
+</html>
