@@ -1,3 +1,13 @@
+FROM golang:alpine AS builder
+
+WORKDIR /tmp/webtool
+
+COPY . .
+
+RUN set -eux \
+    ; GO_ENABLED=0 go build -a -trimpath -ldflags "-s -w -buildid= -extldflags -static" -o webtool 
+
+
 FROM alpine:latest
 
 RUN set -eux ; \
@@ -8,7 +18,8 @@ RUN set -eux ; \
 
 WORKDIR /app
 
-COPY README.md webtool /app/
+COPY --chmod=0755 --from=builder /tmp/webtool/webtool /app/
+COPY README.md  /app/
 COPY templates /app/templates
 
 EXPOSE 8081
